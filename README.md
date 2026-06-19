@@ -144,19 +144,19 @@ http://127.0.0.1:5000
 
 📄 User uploads a resume
 
-⬇️
+            ⬇️
 
 📖 PDF text is extracted using pdfplumber
 
-⬇️
+            ⬇️
 
 🧠 NLP and Regex identify candidate information
 
-⬇️
+            ⬇️
 
 💾 Data is stored in PostgreSQL
 
-⬇️
+            ⬇️
 
 📊 Results are displayed on the ATS Dashboard
 
