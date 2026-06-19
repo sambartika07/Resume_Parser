@@ -174,6 +174,26 @@ The system extracts:
 
 ---
 
+## 📸 Project Screenshots
+
+### 🏠 Home Page
+
+![Home Page](screenshots/home_page.png)
+
+### 📄 Resume Analysis
+
+![Resume Analysis](screenshots/resume_analysis.png)
+
+### 📊 ATS Dashboard
+
+![ATS Dashboard](screenshots/ats_dashboard.png)
+
+### 🗄️ PostgreSQL Database
+
+![Database](screenshots/database_table.png)
+
+---
+
 ## 🚀 Future Enhancements
 
 *  Resume Match Score
@@ -197,6 +217,7 @@ This project helped me gain practical experience in:
 *  Information Extraction Techniques
 *  Full-Stack Development
 *  Git & GitHub Version Control
+*  Documentation & Screenshots
 
 ---
 
