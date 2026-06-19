@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Parser</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ce4399,#9c5591);
+        }
+
+        .container{
+            width:500px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(15px);
+            border-radius:20px;
+            padding:40px;
+            text-align:center;
+            color:white;
+            box-shadow:0px 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            margin-bottom:10px;
+        }
+
+        p{
+            margin-bottom:20px;
+        }
+
+        .drop-zone{
+            border:2px dashed white;
+            border-radius:15px;
+            padding:30px;
+            margin:20px 0;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .drop-zone:hover{
+            background:rgba(255,255,255,0.1);
+            transform:scale(1.02);
+        }
+
+        #file-name{
+            margin-top:10px;
+            font-size:14px;
+            color:white;
+        }
+
+        button{
+            background:white;
+            color:#e5148e;
+            border:none;
+            padding:12px 25px;
+            border-radius:10px;
+            font-size:16px;
+            cursor:pointer;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:scale(1.05);
+        }
+
+        small{
+            opacity:0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📑 Resume Parser</h1>
+
+    <p>
+        Upload your resume and get instant candidate analysis.
+    </p>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <div class="drop-zone" id="drop-zone">
+            📄 Drag & Drop Resume Here
+            <br><br>
+            <small>or click to browse</small>
+
+            <input
+                type="file"
+                name="resume"
+                id="resume"
+                required
+                hidden>
+        </div>
+
+        <p id="file-name"></p>
+
+        <button type="submit">
+            Analyze Resume
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+const dropZone = document.getElementById("drop-zone");
+const fileInput = document.getElementById("resume");
+const fileName = document.getElementById("file-name");
+
+dropZone.addEventListener("click", () => {
+    fileInput.click();
+});
+
+fileInput.addEventListener("change", () => {
+    if(fileInput.files.length){
+        fileName.innerText =
+            "SELECTED: " + fileInput.files[0].name;
+    }
+});
+
+// Drag and Drop Support
+dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+
+    if(e.dataTransfer.files.length){
+        fileInput.files = e.dataTransfer.files;
+        fileName.innerText =
+            "Selected: " + e.dataTransfer.files[0].name;
+    }
+});
+</script>
+
+</body>
+</html>

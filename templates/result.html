@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candidate Analysis</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ce4399,#9c5591);
+            padding:20px;
+        }
+
+        .card{
+            width:700px;
+            background:white;
+            border-radius:20px;
+            padding:30px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#ce4399;
+            margin-bottom:25px;
+        }
+
+        .info{
+            margin:15px 0;
+            padding:15px;
+            background:#f7f7f7;
+            border-radius:10px;
+        }
+
+        .label{
+            font-weight:bold;
+            color:#000000;
+        }
+
+        .skills{
+            margin-top:15px;
+        }
+
+        .badge{
+            display:inline-block;
+            background:#f3eef1;
+            color:rgb(0, 0, 0);
+            padding:8px 12px;
+            border-radius:20px;
+            margin:5px;
+        }
+
+        .btn{
+            display:block;
+            width:200px;
+            margin:25px auto 0;
+            text-align:center;
+            background:#c92e90;
+            color:white;
+            text-decoration:none;
+            padding:12px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>📊 Candidate Analysis</h1>
+
+    <div class="info">
+        <span class="label">👤 Name:</span>
+        {{ name }}
+    </div>
+
+    <div class="info">
+        <span class="label">📧 Email:</span>
+        {{ email }}
+    </div>
+
+    <div class="info">
+        <span class="label">📱 Phone:</span>
+        {{ phone }}
+    </div>
+
+    <div class="info">
+        <span class="label">🎓 Education:</span>
+        {{ education }}
+    </div>
+
+    <div class="info skills">
+        <span class="label">💻 Skills:</span>
+        <br><br>
+
+        {% for skill in skills.split(',') %}
+            <span class="badge">{{ skill }}</span>
+        {% endfor %}
+    </div>
+
+    <a href="/" class="btn">
+        Upload Another Resume
+    </a>
+
+</div>
+
+</body>
+</html>

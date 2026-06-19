@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATS Dashboard</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:30px;
+            color:#ce4399;
+        }
+
+        .cards{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+            margin-bottom:30px;
+        }
+
+        .card{
+            background:white;
+            width:220px;
+            padding:20px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2{
+            color:#ce4399;
+            margin-bottom:10px;
+        }
+
+        .search-box{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .search-box input{
+            width:350px;
+            padding:12px;
+            border-radius:10px;
+            border:1px solid #ccc;
+        }
+
+        table{
+            width:100%;
+            background:white;
+            border-collapse:collapse;
+            border-radius:15px;
+            overflow:hidden;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        th{
+            background:#ce4399;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #eee;
+        }
+
+        tr:hover{
+            background:#fafafa;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>📊 ATS Dashboard</h1>
+
+<div class="cards">
+
+    <div class="card">
+        <h2>{{ resumes|length }}</h2>
+        <p>Total Resumes</p>
+    </div>
+
+    <div class="card">
+        <h2>AI ATS</h2>
+        <p>Resume Parser</p>
+    </div>
+
+</div>
+
+<div class="search-box">
+    <input type="text"
+           id="searchInput"
+           placeholder="Search by Name, Skill or Email...">
+</div>
+
+<table id="resumeTable">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Skills</th>
+    </tr>
+
+    {% for r in resumes %}
+    <tr>
+        <td>{{ r[0] }}</td>
+        <td>{{ r[1] }}</td>
+        <td>{{ r[2] }}</td>
+        <td>{{ r[3] }}</td>
+        <td>{{ r[4] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<script>
+document.getElementById("searchInput")
+.addEventListener("keyup", function() {
+
+    let filter =
+    this.value.toLowerCase();
+
+    let rows =
+    document.querySelectorAll("#resumeTable tr");
+
+    rows.forEach((row,index)=>{
+
+        if(index===0) return;
+
+        let text =
+        row.innerText.toLowerCase();
+
+        row.style.display =
+        text.includes(filter)
+        ? ""
+        : "none";
+    });
+});
+</script>
+
+</body>
+</html>
