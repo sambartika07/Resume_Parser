@@ -178,7 +178,7 @@ The system extracts:
 
 ### 🏠 Home Page
 
-![Home Page](screenshots/home_page.png)
+![Home Page](screenshots/home.png)
 
 ### 📄 Resume Analysis
 
@@ -186,11 +186,11 @@ The system extracts:
 
 ### 📊 ATS Dashboard
 
-![ATS Dashboard](screenshots/ats_dashboard.png)
+![ATS Dashboard](screenshots/ATS_dashboard.png)
 
 ### 🗄️ PostgreSQL Database
 
-![Database](screenshots/database_table.png)
+![Database](screenshots/Database.png)
 
 ---
 
